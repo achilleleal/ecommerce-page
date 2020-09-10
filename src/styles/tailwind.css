@@ -3,3 +3,11 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.primaryBg {
+    @apply bg-gray-800
+}
+
+.secondaryBg {
+    @apply bg-gray-700
+}
