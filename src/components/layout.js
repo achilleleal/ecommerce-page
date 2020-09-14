@@ -3,20 +3,22 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 const ListLink = props =>
-  <li className="inline-block mr-8">
+  <li className="inline-block mr-8 duration-300 transform hover:scale-110 hover:secondaryText">
     <Link to={props.to}>{props.children}</Link>
   </li>
 
 const Header = () => 
   <header className="primaryBg flex items-center justify-between"> 
     <div className="py-2 mx-5">
-      <h1 className="text-2xl primaryText title">Chronos</h1>
+      <Link to="/">
+        <h1 className="text-2xl primaryText title">Chronos</h1>
+      </Link>
     </div>
-    <div className="py-2 secondaryText">
+    <div className="py-2 text-white">
       <ul className="float-right">
-        <ListLink to="/" className="link duration-300 transform hover:scale-110">Home</ListLink>
-        <ListLink to="/about" className="link duration-300 transform hover:scale-110">About</ListLink>
-        <ListLink to="/contact" className="link duration-300 transform hover:scale-110">Contact</ListLink>
+        <ListLink to="#about">About</ListLink>
+        <ListLink to="/pricing">Register</ListLink>
+        <ListLink to="/signin">Sign In</ListLink>
       </ul>
     </div>      
   </header>
