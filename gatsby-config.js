@@ -33,6 +33,21 @@ module.exports = {
         postCssPlugins: [require(`tailwindcss`)],
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Pacifico`,
+            variants: [`400`]
+          },
+          {
+            family: `Montserrat`,
+            variants: [`400`]
+          },
+        ],
+      },
+    },
     { 
       resolve: `gatsby-plugin-purgecss`,
       options: {

@@ -4,10 +4,26 @@
 
 @tailwind utilities;
 
+body {
+    font-family: 'Montserrat';
+}
+
+.title {
+    font-family: 'Pacifico';
+}
+
 .primaryBg {
-    @apply bg-gray-800
+    @apply bg-gray-800;
 }
 
 .secondaryBg {
-    @apply bg-gray-700
+    @apply bg-gray-700;
+}
+
+.primaryText {
+    @apply text-blue-600;
+}
+
+.secondaryText {
+    @apply text-blue-300;
 }
