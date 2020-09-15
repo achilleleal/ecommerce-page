@@ -1,32 +1,48 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+// This code will loop through all the images each time the component is rendered. 
+// This lets us pass the desired image through props instead of writing a query for each individual image or making a component for each image.
+// Page load time shouldn't be affected as long as you're not changing the image component's source dynamically after setting it the first time.
+// Compile time will be affected, though probably not noticeably.
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
 
-const Image = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "github-logo.png" }) {
-        childImageSharp {
-          fixed(width: 30) {
-            ...GatsbyImageSharpFixed
+import React from 'react'
+import Img from 'gatsby-image'
+import { StaticQuery, graphql } from 'gatsby'
+
+const Image = (props) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        images: allFile {
+          edges {
+            node {
+              relativePath
+              name
+              childImageSharp {
+                sizes(maxWidth: 600) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }
-    }
-  `)
+    `}
 
-  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />
-}
+    render={(data) => {
+      const image = data.images.edges.find(n => {
+        return n.node.relativePath.includes(props.filename);
+      });
+      if (!image) { return null; }
+      
+      const imageSizes = image.node.childImageSharp.sizes;
+      return (
+        <Img
+          alt={props.alt}
+          sizes={imageSizes}
+        />
+      );
+    }}
+  />
+)
 
 export default Image

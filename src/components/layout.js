@@ -1,11 +1,12 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import Image from "../components/image"
 
 const ListLink = props =>
   <li className="inline-block mr-8 duration-300 transform hover:scale-110 hover:secondaryText">
     <Link to={props.to}>{props.children}</Link>
   </li>
+
 
 const Header = () => 
   <header className="primaryBg flex items-center justify-between"> 
@@ -23,29 +24,18 @@ const Header = () =>
     </div>      
   </header>
 
-const Footer = () =>{
 
-  const data = useStaticQuery(graphql`
-    query {
-      github: file(relativePath: { eq: "github-logo.png" }) {
-        childImageSharp {
-          fixed(width: 30) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
-
-  return(
+const Footer = () =>
     <footer className="primaryBg text-white text-center py-2">
       <h3>Made with <span role="img" aria-label="love">❤️</span> by Sebastián Leal, 2020</h3>
-      <a href="https://github.com/achilleleal/ecommerce-page">
-        <Img fixed={data.github.childImageSharp.fixed} className="duration-300 transform hover:scale-110"/>
-      </a>
+      <div className="flex justify-center my-2">
+        <a href="https://github.com/achilleleal/ecommerce-page">
+          <div className="w-10 duration-300 transform hover:scale-110">
+            <Image filename="github-logo.png" />
+          </div>
+        </a>
+      </div>
     </footer>
-  )
-}
 
 
 const Layout = ({ children }) => 
@@ -54,5 +44,6 @@ const Layout = ({ children }) =>
       <main>{children}</main>
       <Footer/>
     </>
+
 
 export default Layout
