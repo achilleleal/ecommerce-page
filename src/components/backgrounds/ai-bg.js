@@ -1,8 +1,37 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
 import { graphql, StaticQuery } from 'gatsby'
+import Particles from "react-particles-js"
 
-const AIBackground = ({ className, children}) => (
+const particleParams = {
+  "particles": {
+      "number": {
+          "value": 300,
+          "density": {
+              "enable": false
+          }
+      },
+      "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+              "speed": 4,
+              "size_min": 0.3
+          }
+      },
+      "line_linked": {
+          "enable": false
+      },
+      "move": {
+          "random": true,
+          "speed": 1,
+          "direction": "top",
+          "out_mode": "out"
+      }
+  }
+}
+
+const AIBackground = ({ className, children }) => (
     <StaticQuery
       query={graphql`
         query {
@@ -20,11 +49,13 @@ const AIBackground = ({ className, children}) => (
         return (
           <BackgroundImage
             Tag="section"
-            className={className}
             fluid={imageData}
             backgroundColor={`#040e18`}
           >
+            <div className={className}>
+            <Particles params={particleParams} className="particles"/>
             {children}
+            </div>
           </BackgroundImage>
         )
       }}

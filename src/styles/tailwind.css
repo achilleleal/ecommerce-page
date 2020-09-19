@@ -12,10 +12,6 @@ body {
     font-family: 'Pacifico';
 }
 
-.title:hover {
-    @apply text-blue-300;
-}
-
 .primaryBg {
     @apply bg-gray-800;
 }
@@ -30,4 +26,8 @@ body {
 
 .secondaryText {
     @apply text-blue-300;
+}
+
+.particles {
+    @apply absolute h-full w-full z-0;
 }
