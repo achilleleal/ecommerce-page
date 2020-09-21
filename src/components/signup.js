@@ -20,10 +20,11 @@ class SignUpCard extends Component {
     render () {
         
         const allowedPasswordLength = 6;
-        const {signInPassword} = this.state;
+        const { signInPassword } = this.state;
+        const { className } = this.props;
 
         return (
-            <div className="w-full max-w-xs bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className={`w-full max-w-xs bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ${className}`}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" forHTML="email">
                         Email
@@ -51,7 +52,7 @@ class SignUpCard extends Component {
                         Sign Up
                     </button>
                 </div>
-                <p className="text-center text-gray-500 text-xs mt-2">
+                <p className="content-center text-center text-gray-500 text-xs mt-4">
                     By clicking “Sign up”, you agree to our Terms of Service and Privacy Statement.
                 </p>
             </div>
