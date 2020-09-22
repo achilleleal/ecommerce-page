@@ -36,19 +36,22 @@ class SignUpCard extends Component {
                         Password
                     </label>
                     <input onChange={this.onPasswordChange} 
-                    className={`shadow appearance-none border ${signInPassword.length === 0 ? "" :
-                        signInPassword.length <= allowedPasswordLength ?"border-red-500": ""} rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline`} id="password" type="password" placeholder="******************" />
+                    className={`shadow appearance-none border 
+                    ${signInPassword.length === 0 ? "" :
+                        signInPassword.length <= allowedPasswordLength ? "border-red-500": ""}
+                         rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline`} id="password" type="password" placeholder="******************" />
                     <p className="text-xs italic text-red-700">
                         {signInPassword.length === 0 ? "" : 
-                            signInPassword.length <= allowedPasswordLength ? `The password must be longer than ${allowedPasswordLength} characters` : ""}
+                            signInPassword.length <= allowedPasswordLength ? 
+                            `The password must be longer than ${allowedPasswordLength} characters` : ""}
                     </p>
                 </div>
                 <div className="flex items-center justify-between">
-                    <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                    <a className="inline-block align-baseline font-bold text-sm primaryText hover:text-blue-800" href="#">
                         Forgot Password?
                     </a>
                     <button onClick={() => console.log(this.state.signInEmail, this.state.signInPassword)}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                         Sign Up
                     </button>
                 </div>

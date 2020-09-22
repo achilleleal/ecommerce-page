@@ -4,16 +4,10 @@
 
 @tailwind utilities;
 
+/*** GENERAL ***/
+
 body {
     font-family: 'Montserrat';
-}
-
-.title {
-    font-family: 'Pacifico';
-}
-
-.title:hover {
-    @apply text-blue-300
 }
 
 .primaryBg {
@@ -24,13 +18,23 @@ body {
     @apply bg-gray-700;
 }
 
+.title {
+    font-family: 'Pacifico';
+}
+
 .primaryText {
-    @apply text-blue-600;
+    @apply text-teal-500;
 }
 
 .secondaryText {
-    @apply text-blue-300;
+    @apply text-teal-300;
 }
+
+.to-secondary-text:hover {
+    @apply text-teal-300;
+}
+
+/*** BG COMPONENTS ***/
 
 .particles {
     @apply absolute h-full w-full z-0;
