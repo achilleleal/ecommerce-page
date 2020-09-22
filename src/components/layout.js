@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Image from "../components/image"
 
 const ListLink = props =>
-  <li className="inline-block mr-8 duration-300 transform hover:scale-110 hover:secondaryText">
+  <li className="inline-block mr-3 sm:mr-8 duration-300 transform hover:scale-110 hover:secondaryText">
     <Link to={props.to}>{props.children}</Link>
   </li>
 
@@ -16,7 +16,7 @@ const Header = () =>
       </Link>
     </div>
     <nav className="py-2 text-white">
-      <ul className="float-right">
+      <ul className="float-right text-sm md:text-base">
         <ListLink to="#about">About</ListLink>
         <ListLink to="/pricing">Register</ListLink>
         <ListLink to="/signin">Sign In</ListLink>
@@ -27,7 +27,7 @@ const Header = () =>
 
 const Footer = () =>
     <footer className="primaryBg text-white text-center py-2">
-      <h3>Made with <span role="img" aria-label="love">❤️</span> by Sebastián Leal, 2020</h3>
+      <h3 className="text-sm sm:text-base">Made with <span role="img" aria-label="love">❤️</span> by Sebastián Leal, 2020</h3>
       <nav className="flex justify-center my-2">
         <a href="https://github.com/achilleleal/ecommerce-page">
           <Image filename="github-logo.png" className="w-10 duration-300 transform hover:scale-110"/>
